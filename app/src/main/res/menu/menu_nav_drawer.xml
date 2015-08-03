@@ -1,0 +1,39 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <group>
+        <item
+            android:id="@+id/menu_profile"
+            android:icon="@drawable/profile"
+            android:title="profile"></item>
+    </group>
+    <item android:title="players">
+        <menu>
+            <item
+                android:id="@+id/menu_audio"
+                android:icon="@drawable/audio"
+                android:title="music"></item>
+            <item
+                android:id="@+id/menu_video"
+                android:icon="@drawable/video"
+                android:title="video"></item>
+        </menu>
+    </item>
+    <item android:title="images">
+        <menu>
+            <item
+                android:id="@+id/menu_gallery"
+                android:icon="@drawable/gallery"
+                android:title="gallery"></item>
+        </menu>
+    </item>
+    <item android:title="calls">
+        <menu>
+            <item
+                android:id="@+id/menu_contacts"
+                android:icon="@drawable/contacts"
+                android:title="contacts"></item>
+        </menu>
+    </item>
+</menu>

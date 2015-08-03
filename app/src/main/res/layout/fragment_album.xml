@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.afbb.balakrishna.albumart.fragments.AlbumFragment">
+
+    <ListView
+        android:id="@+id/list_album"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+
+    <Button
+        android:id="@+id/btn_custom_provider"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:text="custom content provider demo" />
+</RelativeLayout>
