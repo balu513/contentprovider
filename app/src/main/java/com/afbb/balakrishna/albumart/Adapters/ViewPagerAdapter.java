@@ -44,6 +44,11 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     // This method return the titles for the Tabs in the Tab Strip
 
+    /**
+     *
+     * @param position
+     * @return
+     */
     @Override
     public CharSequence getPageTitle(int position) {
         return Titles[position];
