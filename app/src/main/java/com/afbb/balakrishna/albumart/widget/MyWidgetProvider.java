@@ -3,6 +3,7 @@ package com.afbb.balakrishna.albumart.widget;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
@@ -15,16 +16,24 @@ import java.util.Random;
 
 public class MyWidgetProvider extends AppWidgetProvider {
 
+    private int[] id;
+
     @Override
     public void onReceive(Context context, Intent intent) {
-        super.onReceive(context, intent);
+        if (intent.getAction().equals("update")) {
+            AppWidgetManager manager = AppWidgetManager.getInstance(context);
+            ComponentName thisWidget = new ComponentName(context,
+                    MyWidgetProvider.class);
+            id = manager.getAppWidgetIds(thisWidget);
+            onUpdate(context, manager,id);
+        }
         Toast.makeText(context, "onReceive", Toast.LENGTH_SHORT).show();
+        super.onReceive(context, intent);
     }
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-//        super.onUpdate(context, appWidgetManager, appWidgetIds);
-        Toast.makeText(context,"onUpdate", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "onUpdate", Toast.LENGTH_SHORT).show();
         int N = appWidgetIds.length;
         for (int i = 0; i < N; i++) {
             Intent intent = new Intent(context, WidgetActivty.class);
@@ -33,6 +42,7 @@ public class MyWidgetProvider extends AppWidgetProvider {
             remoteViews.setTextViewText(R.id.textView_widget, new Random().nextInt(1000) + "");
             appWidgetManager.updateAppWidget(appWidgetIds[i], remoteViews);
         }
+        super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
 
     @Override

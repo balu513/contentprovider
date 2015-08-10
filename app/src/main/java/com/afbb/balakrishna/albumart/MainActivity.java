@@ -14,6 +14,7 @@ import com.afbb.balakrishna.albumart.fragments.AlbumFragment;
 import com.afbb.balakrishna.albumart.fragments.ContactsFragment;
 import com.afbb.balakrishna.albumart.fragments.GalleryFragment;
 import com.afbb.balakrishna.albumart.fragments.VideoFragment;
+import com.afbb.balakrishna.albumart.service.BackgroundServie;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 
@@ -30,6 +31,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         navigationView = (NavigationView) findViewById(R.id.navgview);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerlout);
         navigationView.setNavigationItemSelectedListener(this);
+        startService(new Intent(this,BackgroundServie.class));
         replaceFragment(new AlbumFragment());
     }
 

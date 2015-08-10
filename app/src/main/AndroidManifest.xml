@@ -37,6 +37,7 @@
         <receiver android:name="com.afbb.balakrishna.albumart.widget.MyWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="update" />
             </intent-filter>
 
             <meta-data
