@@ -1,0 +1,3 @@
+tool bar with tabs
+
+http://www.exoguru.com/android/material-design/navigation/android-sliding-tabs-with-material-design.html

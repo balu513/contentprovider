@@ -1,4 +1,4 @@
-package com.afbb.balakrishna.albumart.activities;
+package com.afbb.balakrishna.albumart.classes;
 
 import android.R;
 import android.content.Context;
