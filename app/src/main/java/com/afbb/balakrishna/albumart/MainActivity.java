@@ -1,13 +1,15 @@
 package com.afbb.balakrishna.albumart;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 
+import com.afbb.balakrishna.albumart.activities.ActionBarDemoActiviy;
 import com.afbb.balakrishna.albumart.fragments.AlbumFragment;
 import com.afbb.balakrishna.albumart.fragments.ContactsFragment;
 import com.afbb.balakrishna.albumart.fragments.GalleryFragment;
@@ -15,7 +17,7 @@ import com.afbb.balakrishna.albumart.fragments.VideoFragment;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 
-public class MainActivity extends ActionBarActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends FragmentActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private SlidingMenu menu;
     private NavigationView navigationView;
@@ -49,7 +51,9 @@ public class MainActivity extends ActionBarActivity implements NavigationView.On
                 replaceFragment(new ContactsFragment());
                 break;
             case R.id.menu_tabs:
-                
+                startActivity(new Intent(this, ActionBarDemoActiviy.class));
+                break;
+
         }
 
         return false;
