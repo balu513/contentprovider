@@ -31,6 +31,10 @@
             android:name=".activities.ActionBarDemoActiviy"
             android:label="@string/title_activity_action_bar_demo_activiy" >
         </activity>
+        <activity
+            android:name=".activities.testAc"
+            android:label="@string/title_activity_test" >
+        </activity>
     </application>
 
 </manifest>

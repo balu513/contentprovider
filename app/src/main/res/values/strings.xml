@@ -8,4 +8,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_sample_activty">SampleActivty</string>
     <string name="title_activity_action_bar_demo_activiy">ActionBarDemoActiviy</string>
+    <string name="title_activity_test">testAc</string>
 </resources>
