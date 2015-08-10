@@ -44,7 +44,7 @@ public class BackgroundServie extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        service.scheduleAtFixedRate(thread, 0, 10, TimeUnit.SECONDS);
+        service.scheduleAtFixedRate(thread, 0, 5, TimeUnit.SECONDS);
         return super.onStartCommand(intent, flags, startId);
     }
 
