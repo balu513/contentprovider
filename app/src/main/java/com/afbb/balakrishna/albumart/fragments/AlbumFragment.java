@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.afbb.balakrishna.albumart.Adapters.SongsCursorAdapter;
+import com.afbb.balakrishna.albumart.DargDropActivity;
 import com.afbb.balakrishna.albumart.MainActivity;
 import com.afbb.balakrishna.albumart.R;
 import com.afbb.balakrishna.albumart.SampleActivty;
@@ -94,7 +95,7 @@ public class AlbumFragment extends Fragment implements LoaderManager.LoaderCallb
         mBuilder.setStyle(inboxStyle);
 
    /* Creates an explicit intent for an Activity in your app */
-        Intent resultIntent = new Intent(getActivity(), SampleActivty.class);
+        Intent resultIntent = new Intent(getActivity(), DargDropActivity.class);
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(getActivity());
         stackBuilder.addParentStack(SampleActivty.class);

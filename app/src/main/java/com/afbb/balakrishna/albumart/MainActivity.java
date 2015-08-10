@@ -36,8 +36,6 @@ public class MainActivity extends ActionBarActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         closeDrawer();
         switch (menuItem.getItemId()) {
-            case R.id.menu_profile:
-                break;
             case R.id.menu_audio:
                 replaceFragment(new AlbumFragment());
                 break;
@@ -50,6 +48,8 @@ public class MainActivity extends ActionBarActivity implements NavigationView.On
             case R.id.menu_contacts:
                 replaceFragment(new ContactsFragment());
                 break;
+            case R.id.menu_tabs:
+                
         }
 
         return false;

@@ -11,4 +11,13 @@
              which is used to tint widgets -->
         <item name="colorAccent">#005500</item>
     </style>
+        <!--<style name="CustomFontStyle">-->
+            <!--<item name="android:layout_width">fill_parent</item>-->
+            <!--<item name="android:layout_height">wrap_content</item>-->
+            <!--<item name="android:capitalize">characters</item>-->
+            <!--<item name="android:typeface">monospace</item>-->
+            <!--<item name="android:textSize">12pt</item>-->
+            <!--<item name="android:textColor">#00FF00</item>/>-->
+        <!--</style>-->
+
 </resources>

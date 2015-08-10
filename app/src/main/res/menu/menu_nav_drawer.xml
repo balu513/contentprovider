@@ -2,13 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
-    <group>
-        <item
-            android:id="@+id/menu_profile"
-            android:icon="@drawable/profile"
-            android:title="profile"></item>
-    </group>
-    <item android:title="players">
+    <!--<group>-->
+    <!--<item-->
+    <!--android:id="@+id/menu_profile"-->
+    <!--android:icon="@drawable/profile"-->
+    <!--android:title="profile"></item>-->
+    <!--</group>-->
+    <item android:title="content provider">
         <menu>
             <item
                 android:id="@+id/menu_audio"
@@ -18,22 +18,22 @@
                 android:id="@+id/menu_video"
                 android:icon="@drawable/video"
                 android:title="video"></item>
-        </menu>
-    </item>
-    <item android:title="images">
-        <menu>
             <item
                 android:id="@+id/menu_gallery"
                 android:icon="@drawable/gallery"
                 android:title="gallery"></item>
-        </menu>
-    </item>
-    <item android:title="calls">
-        <menu>
             <item
                 android:id="@+id/menu_contacts"
                 android:icon="@drawable/contacts"
                 android:title="contacts"></item>
+        </menu>
+    </item>
+    <item android:title="action bars">
+        <menu>
+            <item
+                android:id="@+id/menu_tabs"
+                android:icon="@drawable/audio"
+                android:title="tabs-viewpager"></item>
         </menu>
     </item>
 </menu>
