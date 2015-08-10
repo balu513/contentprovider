@@ -23,7 +23,8 @@ public class MyWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        super.onUpdate(context, appWidgetManager, appWidgetIds);
+//        super.onUpdate(context, appWidgetManager, appWidgetIds);
+        Toast.makeText(context,"onUpdate", Toast.LENGTH_SHORT).show();
         int N = appWidgetIds.length;
         for (int i = 0; i < N; i++) {
             Intent intent = new Intent(context, WidgetActivty.class);
