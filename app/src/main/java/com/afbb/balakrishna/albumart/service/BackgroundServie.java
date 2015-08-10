@@ -37,7 +37,7 @@ public class BackgroundServie extends Service {
             System.out.println("Service:     " + time);
             Intent intent = new Intent();
             intent.putExtra("key", time);
-            intent.setAction("UPDATE");
+            intent.setAction("update");
             sendBroadcast(intent);
         }
     });

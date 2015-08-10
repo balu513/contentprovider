@@ -7,7 +7,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
-import android.widget.Toast;
 
 import com.afbb.balakrishna.albumart.R;
 import com.afbb.balakrishna.albumart.activities.WidgetActivty;
@@ -25,15 +24,13 @@ public class MyWidgetProvider extends AppWidgetProvider {
             ComponentName thisWidget = new ComponentName(context,
                     MyWidgetProvider.class);
             id = manager.getAppWidgetIds(thisWidget);
-            onUpdate(context, manager,id);
+            onUpdate(context, manager, id);
         }
-        Toast.makeText(context, "onReceive", Toast.LENGTH_SHORT).show();
         super.onReceive(context, intent);
     }
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        Toast.makeText(context, "onUpdate", Toast.LENGTH_SHORT).show();
         int N = appWidgetIds.length;
         for (int i = 0; i < N; i++) {
             Intent intent = new Intent(context, WidgetActivty.class);
