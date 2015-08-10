@@ -36,4 +36,12 @@
                 android:title="tabs-viewpager"></item>
         </menu>
     </item>
+    <item android:title="widget">
+        <menu>
+            <item
+                android:id="@+id/menu_widget"
+                android:icon="@drawable/audio"
+                android:title="widget"></item>
+        </menu>
+    </item>
 </menu>

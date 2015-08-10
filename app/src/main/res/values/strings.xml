@@ -9,4 +9,5 @@
     <string name="title_activity_sample_activty">SampleActivty</string>
     <string name="title_activity_action_bar_demo_activiy">ActionBarDemoActiviy</string>
     <string name="title_activity_test">testAc</string>
+    <string name="title_activity_widget_activty">WidgetActivty</string>
 </resources>

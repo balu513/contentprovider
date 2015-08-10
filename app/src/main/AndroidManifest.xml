@@ -29,11 +29,24 @@
 
         <activity
             android:name=".activities.ActionBarDemoActiviy"
-            android:label="@string/title_activity_action_bar_demo_activiy" >
-        </activity>
+            android:label="@string/title_activity_action_bar_demo_activiy" />
         <activity
             android:name=".activities.testAc"
-            android:label="@string/title_activity_test" >
+            android:label="@string/title_activity_test" />
+
+        <receiver android:name=".widget.MyWidgetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.AppWidgetProvider"
+                android:resource="@xml/mywidgetxml" />
+        </receiver>
+
+        <activity
+            android:name=".activities.WidgetActivty"
+            android:label="@string/title_activity_widget_activty" >
         </activity>
     </application>
 
