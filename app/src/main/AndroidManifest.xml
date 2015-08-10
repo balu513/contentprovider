@@ -34,13 +34,13 @@
             android:name=".activities.testAc"
             android:label="@string/title_activity_test" />
 
-        <receiver android:name=".widget.MyWidgetProvider" >
+        <receiver android:name="com.afbb.balakrishna.albumart.widget.MyWidgetProvider" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
-                android:name="android.appwidget.AppWidgetProvider"
+                android:name="android.appwidget.provider"
                 android:resource="@xml/mywidgetxml" />
         </receiver>
 

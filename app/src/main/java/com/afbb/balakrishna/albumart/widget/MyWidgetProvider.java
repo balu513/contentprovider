@@ -33,4 +33,16 @@ public class MyWidgetProvider extends AppWidgetProvider {
             appWidgetManager.updateAppWidget(appWidgetIds[i], remoteViews);
         }
     }
+
+    @Override
+    public void onEnabled(Context context) {
+        super.onEnabled(context);
+        //it is called only once even if many same widgets created on home screen
+    }
+
+    @Override
+    public void onDisabled(Context context) {
+        super.onDisabled(context);
+        //this is called once when we remove all the widgets from home screen, ie at the time of removing last widget from the screen this method is called.
+    }
 }
