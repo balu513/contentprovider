@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.afbb.balakrishna.albumart.Adapters.ViewPagerAdapter;
 import com.afbb.balakrishna.albumart.R;
+import com.afbb.balakrishna.albumart.classes.SlidingTabLayout;
 
 public class ActionBarDemoActiviy extends AppCompatActivity {
 
