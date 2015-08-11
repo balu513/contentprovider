@@ -36,12 +36,30 @@
                 android:title="tabs-viewpager"></item>
         </menu>
     </item>
-    <item android:title="widget">
+    <menu>
+        <item
+            android:id="@+id/menu_widget"
+            android:icon="@drawable/audio"
+            android:title="widget"></item>
+        <item
+            android:id="@+id/menu_notification"
+            android:icon="@drawable/audio"
+            android:title="notification"></item>
+    </menu>
+    <item android:title="services">
         <menu>
             <item
-                android:id="@+id/menu_widget"
+                android:id="@+id/menu_service"
                 android:icon="@drawable/audio"
-                android:title="widget"></item>
+                android:title="start service"></item>
+            <item
+                android:id="@+id/menu_messengers"
+                android:icon="@drawable/audio"
+                android:title="messengers"></item>
+            <item
+                android:id="@+id/menu_aidl"
+                android:icon="@drawable/audio"
+                android:title="aidl"></item>
         </menu>
     </item>
 </menu>
