@@ -33,7 +33,7 @@ public class StartService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d("StartService", "onStartCommand 34 ");
+        Log.d("StartService", "onStartCommand");
         handler.postDelayed(runnable, 1000);
         return START_STICKY;
     }
