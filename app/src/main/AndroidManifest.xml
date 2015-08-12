@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.afbb.balakrishna.albumart">
+    package="com.afbb.balakrishna.albumart" >
 
     <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -13,10 +13,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,7 +35,7 @@
             android:name=".activities.testAc"
             android:label="@string/title_activity_test" />
 
-        <receiver android:name=".widget.MyWidgetProvider">
+        <receiver android:name=".widget.MyWidgetProvider" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="update" />
@@ -55,25 +55,35 @@
 
         <activity
             android:name=".activities.ServiceOperationsActivity"
-            android:label="@string/title_activity_service_operatons_activty"></activity>
+            android:label="@string/title_activity_service_operatons_activty" />
 
         <service
             android:name=".service.BoundService"
             android:enabled="true"
-            android:exported="true"></service>
-        <!--<service-->
-        <!--android:name=".service.InstantMessenger"-->
-        <!--android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
-        <!--</intent-filter>-->
-        <!--</service>-->
-        <receiver android:name=".service.BoundService$NotificationBroadcastReceiver">
+            android:exported="true" />
+        <!-- <service -->
+        <!-- android:name=".service.InstantMessenger" -->
+        <!-- android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.accessibilityservice.AccessibilityService" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+        <receiver android:name=".service.BoundService$NotificationBroadcastReceiver" >
             <intent-filter>
-                <action android:name="notification_cancelled"></action>
+                <action android:name="notification_cancelled" />
             </intent-filter>
-
         </receiver>
+
+        <activity
+            android:name=".activities.MessengerActivity"
+            android:label="@string/title_activity_messanger" >
+        </activity>
+
+        <service
+            android:name=".service.MyMessengerService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>

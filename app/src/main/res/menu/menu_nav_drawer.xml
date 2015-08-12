@@ -51,7 +51,7 @@
             <item
                 android:id="@+id/menu_service"
                 android:icon="@drawable/audio"
-                android:title="start service"></item>
+                android:title="service"></item>
             <item
                 android:id="@+id/menu_messengers"
                 android:icon="@drawable/audio"

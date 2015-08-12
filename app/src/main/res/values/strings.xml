@@ -11,4 +11,5 @@
     <string name="title_activity_test">testAc</string>
     <string name="title_activity_widget_activty">WidgetActivty</string>
     <string name="title_activity_service_operatons_activty">ServiceOperatonsActivty</string>
+    <string name="title_activity_messanger">MessangerActivity</string>
 </resources>

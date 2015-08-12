@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.afbb.balakrishna.albumart.activities.ActionBarDemoActiviy;
+import com.afbb.balakrishna.albumart.activities.MessengerActivity;
 import com.afbb.balakrishna.albumart.activities.ServiceOperationsActivity;
 import com.afbb.balakrishna.albumart.fragments.AlbumFragment;
 import com.afbb.balakrishna.albumart.fragments.ContactsFragment;
@@ -63,10 +64,14 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
             case R.id.menu_tabs:
                 startActivity(new Intent(this, ActionBarDemoActiviy.class));
                 break;
+            case R.id.menu_notification:
+                showNotification();
+                break;
             case R.id.menu_service:
                 startActivity(new Intent(this, ServiceOperationsActivity.class));
                 break;
             case R.id.menu_messengers:
+                startActivity(new Intent(this, MessengerActivity.class));
                 break;
             case R.id.menu_aidl:
                 break;
