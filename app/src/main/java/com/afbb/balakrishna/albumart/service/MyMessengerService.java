@@ -8,7 +8,6 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
-import android.widget.Toast;
 
 import java.util.Random;
 
@@ -34,7 +33,6 @@ public class MyMessengerService extends Service {
                     Bundle data = msg.getData();
                     String message = data.getString("key_fromActivity");
                     data.putString("key_fromService", "from service  " + new Random().nextInt(10000));
-                    Toast.makeText(getApplicationContext(), "message:"+message, Toast.LENGTH_SHORT).show();
 
                     Message message1 = new Message();
                     message1.setData(data);

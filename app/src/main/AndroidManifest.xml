@@ -73,7 +73,8 @@
 
         <receiver android:name=".service.BoundService$NotificationBroadcastReceiver">
             <intent-filter>
-                <action android:name="notification_cancelled" />
+                <action android:name="notification_canc
+                elled" />
             </intent-filter>
         </receiver>
 
