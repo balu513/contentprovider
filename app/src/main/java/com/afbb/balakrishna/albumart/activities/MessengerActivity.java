@@ -32,6 +32,7 @@ public class MessengerActivity extends Activity {
         tv_msg_fromService = (TextView) findViewById(R.id.tv_msg_from_service);
         Intent intent = new Intent(this, MyMessengerService.class);
         bindService(intent, conn, BIND_AUTO_CREATE);
+//        createPendingResult()
     }
 
     private ServiceConnection conn = new ServiceConnection() {

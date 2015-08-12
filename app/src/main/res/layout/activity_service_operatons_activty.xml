@@ -88,4 +88,14 @@
         android:layout_toRightOf="@+id/button_startplay"
         android:layout_toEndOf="@+id/button_startplay" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="singletonservice_communication"
+        android:id="@+id/button_servcie_singletom"
+        android:layout_above="@+id/button_intentserivce_start"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

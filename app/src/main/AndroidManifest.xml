@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.afbb.balakrishna.albumart" >
+    package="com.afbb.balakrishna.albumart">
 
     <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -8,15 +8,24 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <!--
+ The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but are recommended.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,7 +44,7 @@
             android:name=".activities.testAc"
             android:label="@string/title_activity_test" />
 
-        <receiver android:name=".widget.MyWidgetProvider" >
+        <receiver android:name=".widget.MyWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="update" />
@@ -61,14 +70,8 @@
             android:name=".service.BoundService"
             android:enabled="true"
             android:exported="true" />
-        <!-- <service -->
-        <!-- android:name=".service.InstantMessenger" -->
-        <!-- android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.accessibilityservice.AccessibilityService" /> -->
-        <!-- </intent-filter> -->
-        <!-- </service> -->
-        <receiver android:name=".service.BoundService$NotificationBroadcastReceiver" >
+
+        <receiver android:name=".service.BoundService$NotificationBroadcastReceiver">
             <intent-filter>
                 <action android:name="notification_cancelled" />
             </intent-filter>
@@ -76,14 +79,17 @@
 
         <activity
             android:name=".activities.MessengerActivity"
-            android:label="@string/title_activity_messanger" >
-        </activity>
+            android:label="@string/title_activity_messanger" />
 
         <service
             android:name=".service.MyMessengerService"
             android:enabled="true"
-            android:exported="true" >
-        </service>
+            android:exported="true" />
+
+        <service android:name=".service.MyIntentService"></service>
+        <service android:name=".service.SingletonService"></service>
+
+
     </application>
 
 </manifest>
