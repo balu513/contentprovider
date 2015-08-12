@@ -14,6 +14,7 @@ public class SingletonService extends Service {
 
     @Override
     public void onCreate() {
+
         super.onCreate();
         instance = this;
 
