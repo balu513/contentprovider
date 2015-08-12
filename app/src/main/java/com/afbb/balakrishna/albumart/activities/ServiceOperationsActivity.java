@@ -32,6 +32,10 @@ public class ServiceOperationsActivity extends Activity implements View.OnClickL
 
         setContentView(R.layout.activity_service_operatons_activty);
         tvServiceStatus = (TextView) findViewById(R.id.tv_service_proccessing);
+        init();
+    }
+
+    private void init() {
         Button btn_startService = (Button) findViewById(R.id.button_start_service);
         Button btn_stopService = (Button) findViewById(R.id.button_stop_service);
         Button btn_bindService = (Button) findViewById(R.id.button_bind_service);
@@ -163,7 +167,9 @@ public class ServiceOperationsActivity extends Activity implements View.OnClickL
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unbindService(conn);
-        stopService(intentBoundService);
+        if (conn != null && intentBoundService != null) {
+            unbindService(conn);
+            stopService(intentBoundService);
+        }
     }
 }

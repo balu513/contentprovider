@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.afbb.balakrishna.albumart.R;
+import com.afbb.balakrishna.albumart.core.Student;
 import com.afbb.balakrishna.albumart.service.MyMessengerService;
 
 import java.util.Random;
@@ -60,7 +61,7 @@ public class MessengerActivity extends Activity {
                     String messageFromService = data.getString("key_fromService");
                     String messageActivity = data.getString("key_fromActivity");
                     tv_msg_fromService.setText(tv_msg_fromService.getText() + "\n\n" + messageFromService);
-                    tv_msg_fromAct.setText(tv_msg_fromAct.getText() + "\n\n" +messageActivity);
+                    tv_msg_fromAct.setText(tv_msg_fromAct.getText() + "\n\n" + messageActivity);
 
             }
         }
@@ -69,6 +70,7 @@ public class MessengerActivity extends Activity {
     public void send(View view) {
         Message message = new Message();
         Bundle bundle = new Bundle();
+        bundle.putParcelable("key_parcel", new Student("CSE", "BALU", 1038));
         bundle.putString("key_fromActivity", "from Activity  " + new Random().nextInt(10000));
         message.setData(bundle);
         message.what = 100;

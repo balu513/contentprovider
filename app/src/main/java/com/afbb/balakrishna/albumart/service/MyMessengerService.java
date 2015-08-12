@@ -9,6 +9,8 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 
+import com.afbb.balakrishna.albumart.core.Student;
+
 import java.util.Random;
 
 public class MyMessengerService extends Service {
@@ -32,7 +34,8 @@ public class MyMessengerService extends Service {
                 case 100:
                     Bundle data = msg.getData();
                     String message = data.getString("key_fromActivity");
-                    data.putString("key_fromService", "from service  " + new Random().nextInt(10000));
+                    Student student = data.getParcelable("key_parcel");
+                    data.putString("key_fromService", "from service  " + new Random().nextInt(10000) + " student " + student.getName());
 
                     Message message1 = new Message();
                     message1.setData(data);
