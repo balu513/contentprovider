@@ -117,30 +117,5 @@ public class BoundService extends Service {
         handler.removeCallbacks(runnable);
     }
 
-    /**
-     *
-     * @return
-     */
-    protected PendingIntent getDeleteIntent() {
-        Intent intent = new Intent(getApplicationContext(), NotificationBroadcastReceiver.class);
-        intent.setAction("notification_cancelled");
-        return PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-    }
 
-    public class NotificationBroadcastReceiver extends BroadcastReceiver {
-
-        private Intent intentBoundService;
-        private Object conn;
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals("notification_cancelled")) {
-                Toast.makeText(context, "stopped albumArt playing..", Toast.LENGTH_SHORT).show();
-//                BoundService.this.stopSelf();
-                handler.removeCallbacks(runnable);
-
-            }
-
-        }
-    }
 }
