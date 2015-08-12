@@ -6,6 +6,7 @@ import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afbb.balakrishna.albumart.activities.ServiceOperationsActivity;
@@ -14,6 +15,7 @@ import java.util.Calendar;
 
 public class BoundService extends Service {
     ServiceOperationsActivity activity;
+    private TextView tvServiceStatus;
 
     @Override
     public void onCreate() {
@@ -29,18 +31,6 @@ public class BoundService extends Service {
         return new MyLocale();
     }
 
-    Handler handler = new Handler();
-    private Calendar calendar;
-    Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            if (calendar == null)
-                calendar = Calendar.getInstance();
-
-            sendBackCurrentProcessStatus(calendar.get(Calendar.HOUR) + ":" + calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND));
-
-        }
-    };
 
     public class MyLocale extends Binder {
         public BoundService getReff() {
@@ -69,15 +59,32 @@ public class BoundService extends Service {
             this.activity = activity;
     }
 
-    public void sendBackCurrentProcessStatus(String currentTime) {
-        Log.d("BoundService", "sendBackCurrentProcessStatus 73 " );
-        activity.sendBackCurrentProcessStatus(currentTime);
-        handler.postDelayed(runnable, 400);
-    }
 
-    public void startHandlerProcess() {
+    Handler handler = new Handler();
+    private Calendar calendar;
+
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            calendar = Calendar.getInstance();
+            String currentTime = calendar.get(Calendar.HOUR) + ":" + calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND);
+            Log.d("BoundService", "run 69 " + currentTime);
+            tvServiceStatus.setText(currentTime);
+            handler.postDelayed(runnable, 1000);
+        }
+    };
+
+    public void startHandlerProcess(TextView tvServiceStatus) {
+        this.tvServiceStatus = tvServiceStatus;
         Toast.makeText(getApplicationContext(), "start playing", Toast.LENGTH_SHORT).show();
-        handler.postDelayed(runnable, 1000);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                handler.post(runnable);
+
+            }
+        }).start();
     }
 
     public void stopHandlerProcess() {

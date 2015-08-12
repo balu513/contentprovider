@@ -85,17 +85,13 @@ public class ServiceOperationsActivity extends Activity implements View.OnClickL
                 break;
             case R.id.button_startplay:
                 if (serviceReff != null)
-                    serviceReff.startHandlerProcess();
+                    serviceReff.startHandlerProcess(tvServiceStatus);
                 break;
             case R.id.button_stop_play:
                 if (serviceReff != null)
                     serviceReff.stopHandlerProcess();
                 break;
         }
-    }
-
-    public void sendBackCurrentProcessStatus(String currentTime) {
-        tvServiceStatus.setText(currentTime + "");
     }
 
 }
