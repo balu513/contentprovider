@@ -58,8 +58,8 @@ public class MessengerActivity extends Activity {
                     Bundle data = msg.getData();
                     String messageFromService = data.getString("key_fromService");
                     String messageActivity = data.getString("key_fromActivity");
-                    tv_msg_fromService.setText(messageFromService);
-                    tv_msg_fromAct.setText(messageActivity);
+                    tv_msg_fromService.setText(tv_msg_fromService.getText() + "\n\n" + messageFromService);
+                    tv_msg_fromAct.setText(tv_msg_fromAct.getText() + "\n\n" +messageActivity);
 
             }
         }
@@ -68,7 +68,7 @@ public class MessengerActivity extends Activity {
     public void send(View view) {
         Message message = new Message();
         Bundle bundle = new Bundle();
-        bundle.putString("key_fromActivity", "hi im from Activity" + new Random(1000));
+        bundle.putString("key_fromActivity", "from Activity  " + new Random().nextInt(10000));
         message.setData(bundle);
         message.what = 100;
         try {

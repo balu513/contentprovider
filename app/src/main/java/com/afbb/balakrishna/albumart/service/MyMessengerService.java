@@ -32,7 +32,7 @@ public class MyMessengerService extends Service {
                 case 100:
                     Bundle data = msg.getData();
                     String message = data.getString("key_fromActivity");
-                    data.putString("key_fromService", "hello im from service" + new Random(1000));
+                    data.putString("key_fromService", "from service  " + new Random().nextInt(10000));
 
                     Message message1 = new Message();
                     message1.setData(data);
