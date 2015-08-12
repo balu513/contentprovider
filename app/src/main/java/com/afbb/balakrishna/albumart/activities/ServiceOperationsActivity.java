@@ -29,6 +29,7 @@ public class ServiceOperationsActivity extends Activity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_service_operatons_activty);
         tvServiceStatus = (TextView) findViewById(R.id.tv_service_proccessing);
         Button btn_startService = (Button) findViewById(R.id.button_start_service);
