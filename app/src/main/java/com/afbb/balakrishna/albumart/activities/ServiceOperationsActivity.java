@@ -94,4 +94,10 @@ public class ServiceOperationsActivity extends Activity implements View.OnClickL
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbindService(conn);
+        stopService(intentBoundService);
+    }
 }

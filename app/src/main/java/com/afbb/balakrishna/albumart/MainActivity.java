@@ -44,7 +44,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         replaceFragment(new AlbumFragment());
     }
 
-
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         closeDrawer();
