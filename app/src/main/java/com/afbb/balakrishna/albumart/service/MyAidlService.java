@@ -4,18 +4,32 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 
-/**
- * Created by balakrishna on 12/8/15.
- */
+
 public class MyAidlService extends Service {
+
+    String name;
 
     @Override
     public IBinder onBind(Intent intent) {
-
         return null;
     }
-
-//    IMyAidlInterface.Stub b=new IMyAidlInterface.S
-
+//
+//    IMyAidlInterface.Stub iMyAidlInterface = new IMyAidlInterface.Stub() {
+//
+//        @Override
+//        public void setName(String name) throws RemoteException {
+//            MyAidlService.this.name = name;
+//        }
+//
+//        @Override
+//        public String getName() throws RemoteException {
+//            return MyAidlService.this.name + " : " + new Random().nextInt(1000);
+//        }
+//
+//        @Override
+//        public IBinder asBinder() {
+//            return null;
+//        }
+//    };
 
 }

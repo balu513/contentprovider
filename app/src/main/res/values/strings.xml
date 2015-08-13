@@ -13,4 +13,5 @@
     <string name="title_activity_service_operatons_activty">ServiceOperatonsActivty</string>
     <string name="title_activity_messanger">MessangerActivity</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_aidl">AidlActivity</string>
 </resources>
