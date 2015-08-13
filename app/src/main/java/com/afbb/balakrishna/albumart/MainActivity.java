@@ -101,6 +101,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         mNotifyMgr.notify(i, notification);
 //        mNotifyMgr.cancel(i);
 
+
     }
 
 

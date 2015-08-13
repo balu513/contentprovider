@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.widget.Toast;
 
-/**
- * Created by balakrishna on 12/8/15.
- */
 public class SingletonService extends Service {
 
     private static SingletonService instance;
