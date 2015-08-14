@@ -6,13 +6,16 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.RemoteException;
+import android.widget.Toast;
 
+import com.afbb.balakrishna.albumart.IMyAidlInterface;
 import com.afbb.balakrishna.albumart.R;
 import com.afbb.balakrishna.albumart.service.MyAidlService;
 
 public class AidlActivity extends Activity {
 
-//    IMyAidlInterface iMyAidlInterface;
+    IMyAidlInterface iMyAidlInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +31,14 @@ public class AidlActivity extends Activity {
 
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-//            iMyAidlInterface = IMyAidlInterface.Stub.asInterface(service);
-//            try {
-//                iMyAidlInterface.setName("BALUUU");
-//                Toast.makeText(getApplicationContext(), "NAME: " + iMyAidlInterface.getName(), Toast.LENGTH_SHORT).show();
-//            } catch (RemoteException e) {
-//                e.printStackTrace();
-//            }
+            iMyAidlInterface = IMyAidlInterface.Stub.asInterface(service);
+            try {
+                iMyAidlInterface.setName("BALUUU");
+//                iMyAidlInterface.s
+                Toast.makeText(getApplicationContext(), "NAME: " + iMyAidlInterface.getName(), Toast.LENGTH_SHORT).show();
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
         }
 
         @Override

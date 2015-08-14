@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.afbb.balakrishna.albumart.activities.ActionBarDemoActiviy;
 import com.afbb.balakrishna.albumart.activities.AidlActivity;
+import com.afbb.balakrishna.albumart.activities.LocationActivity;
 import com.afbb.balakrishna.albumart.activities.MessengerActivity;
 import com.afbb.balakrishna.albumart.activities.ServiceOperationsActivity;
 import com.afbb.balakrishna.albumart.fragments.AlbumFragment;
@@ -76,6 +77,9 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 break;
             case R.id.menu_aidl:
                 startActivity(new Intent(this, AidlActivity.class));
+                break;
+            case R.id.menu_current_location:
+                startActivity(new Intent(this, LocationActivity.class));
                 break;
 
 
