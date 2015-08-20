@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.afbb.balakrishna.albumart" >
 
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -91,7 +94,10 @@
 
         <activity
             android:name=".activities.LocationActivity"
-            android:label="@string/title_activity_location" >
+            android:label="@string/title_activity_location" />
+        <activity
+            android:name=".activities.GoogleMapActivity"
+            android:label="@string/title_activity_google_map" >
         </activity>
     </application>
 

@@ -26,7 +26,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/textView_latlangchanges"
-        android:layout_below="@+id/textView_latlang"
+        android:layout_below="@+id/textView_currlatlang"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="167dp" />
 

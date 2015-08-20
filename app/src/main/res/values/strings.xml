@@ -15,4 +15,5 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_aidl">AidlActivity</string>
     <string name="title_activity_location">LocationActivity</string>
+    <string name="title_activity_google_map">GoogleMapActivity</string>
 </resources>

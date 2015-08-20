@@ -5,11 +5,12 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.afbb.balakrishna.albumart.R;
 
-public class LocationActivity extends Activity {
+public class LocationActivity extends Activity implements LocationListener {
 
     private TextView tv_Curr_latlang;
     private TextView tv_Changes_latlang;
@@ -22,9 +23,7 @@ public class LocationActivity extends Activity {
         tv_Curr_latlang = (TextView) findViewById(R.id.textView_currlatlang);
         tv_Changes_latlang = (TextView) findViewById(R.id.textView_latlangchanges);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
-//        getCurrentLocation();
-
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
     }
 
     private void getCurrentLocation() {
@@ -35,28 +34,32 @@ public class LocationActivity extends Activity {
     }
 
 
-    LocationListener locationListener = new LocationListener() {
-        @Override
-        public void onLocationChanged(Location location) {
-            double latitude = location.getLatitude();
-            double longitude = location.getLongitude();
-            tv_Changes_latlang.setText("Latitude: " + latitude + "\n\n" + "Longitude: " + longitude);
+    @Override
+    public void onLocationChanged(Location location) {
+        double latitude = location.getLatitude();
+        double longitude = location.getLongitude();
+        tv_Changes_latlang.setText("Latitude: " + latitude + "\n\n" + "Longitude: " + longitude);
+    }
 
-        }
+    @Override
+    public void onProviderDisabled(String provider) {
+        Log.d("Latitude", "disable");
+    }
 
-        @Override
-        public void onStatusChanged(String provider, int status, Bundle extras) {
+    @Override
+    public void onProviderEnabled(String provider) {
+        Log.d("Latitude", "enable");
+    }
 
-        }
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        Log.d("Latitude", "status");
+    }
 
-        @Override
-        public void onProviderEnabled(String provider) {
-
-        }
-
-        @Override
-        public void onProviderDisabled(String provider) {
-
-        }
-    };
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (locationManager != null)
+            locationManager.removeUpdates(this);
+    }
 }

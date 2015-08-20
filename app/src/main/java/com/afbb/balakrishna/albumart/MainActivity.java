@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.afbb.balakrishna.albumart.activities.ActionBarDemoActiviy;
 import com.afbb.balakrishna.albumart.activities.AidlActivity;
+import com.afbb.balakrishna.albumart.activities.GoogleMapActivity;
 import com.afbb.balakrishna.albumart.activities.LocationActivity;
 import com.afbb.balakrishna.albumart.activities.MessengerActivity;
 import com.afbb.balakrishna.albumart.activities.ServiceOperationsActivity;
@@ -23,14 +24,12 @@ import com.afbb.balakrishna.albumart.fragments.ContactsFragment;
 import com.afbb.balakrishna.albumart.fragments.GalleryFragment;
 import com.afbb.balakrishna.albumart.fragments.VideoFragment;
 import com.afbb.balakrishna.albumart.service.BackgroundServie;
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import java.util.Calendar;
 
 
 public class MainActivity extends FragmentActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private SlidingMenu menu;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     private int i;
@@ -80,6 +79,9 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 break;
             case R.id.menu_current_location:
                 startActivity(new Intent(this, LocationActivity.class));
+                break;
+            case R.id.menu_googlmaps:
+                startActivity(new Intent(this, GoogleMapActivity.class));
                 break;
 
 
