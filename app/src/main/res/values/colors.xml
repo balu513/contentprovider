@@ -3,4 +3,14 @@
     <color name="ColorPrimary">#00897B</color>
     <color name="ColorPrimaryDark">#00695C</color>
     <color name="tabsScrollColor">#004D40</color>
+
+    <color name="red">#ffd62d1e</color>
+    <color name="blue">#ff3e7dee</color>
+    <color name="green">#ff1da535</color>
+    <color name="yellow">#ffffbf16</color>
+    <color name="gray">#ff9fa7b5</color>
+    <color name="pink">#ffff3876</color>
+    <color name="volilet">#ff0bd682</color>
+    <color name="black">#ff000000</color>
+    
 </resources>

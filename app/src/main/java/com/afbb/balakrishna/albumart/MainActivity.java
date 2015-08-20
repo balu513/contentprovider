@@ -19,6 +19,7 @@ import com.afbb.balakrishna.albumart.activities.GoogleMapActivity;
 import com.afbb.balakrishna.albumart.activities.LocationActivity;
 import com.afbb.balakrishna.albumart.activities.MessengerActivity;
 import com.afbb.balakrishna.albumart.activities.ServiceOperationsActivity;
+import com.afbb.balakrishna.albumart.activities.TourchActivity;
 import com.afbb.balakrishna.albumart.fragments.AlbumFragment;
 import com.afbb.balakrishna.albumart.fragments.ContactsFragment;
 import com.afbb.balakrishna.albumart.fragments.CustomContentProviderDemoFragment;
@@ -86,6 +87,9 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 break;
             case R.id.menu_googlmaps:
                 startActivity(new Intent(this, GoogleMapActivity.class));
+                break;
+            case R.id.menu_torch:
+                startActivity(new Intent(this, TourchActivity.class));
                 break;
 
 

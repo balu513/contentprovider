@@ -43,6 +43,11 @@
                 android:id="@+id/menu_tabs"
                 android:icon="@drawable/audio"
                 android:title="tabs-viewpager"></item>
+
+            <item
+                android:id="@+id/menu_torch"
+                android:icon="@drawable/audio"
+                android:title="Torch Light"></item>
         </menu>
     </item>
 
