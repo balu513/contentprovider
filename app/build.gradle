@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "com.afbb.balakrishna.albumart"
-        minSdkVersion 16
-        targetSdkVersion 21
+        minSdkVersion 15
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
@@ -28,8 +28,9 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.0.0'
 //    compile 'com.jeremyfeinstein.slidingmenu:library:1.3@aar'
-    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.android.support:support-v4:22.0.3'
     compile 'com.mcxiaoke.volley:library:1.0.17'
     compile 'com.android.support:design:22.2.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
+    compile 'com.google.android.gms:play-services:4.2.42'
 }

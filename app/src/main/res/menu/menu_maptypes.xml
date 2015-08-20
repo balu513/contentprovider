@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_search"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="always"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        android:title="Search"/>
+    <item
+        android:id="@+id/Save_map"
+        android:orderInCategory="99"
+        android:title="Save map" />
+    <item
+        android:id="@+id/routeDirections"
+        android:orderInCategory="100"
+        android:title="Route directions" />
+    <item
+        android:id="@+id/hybridmap"
+        android:orderInCategory="101"
+        android:title="HybridMap Map" />
+    <item
+        android:id="@+id/satelite"
+        android:orderInCategory="102"
+        android:title="SatiliteMap Map" />
+    <item
+        android:id="@+id/Normal"
+        android:orderInCategory="103"
+        android:title="Normal Map" />
+    <item
+        android:id="@+id/Terrain"
+        android:orderInCategory="104"
+        android:title="Terrain Map" />
+
+    <item
+        android:id="@+id/Traffic"
+        android:orderInCategory="106"
+        android:title="Traffic" />
+</menu>

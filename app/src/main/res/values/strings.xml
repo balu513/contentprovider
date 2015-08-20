@@ -16,4 +16,5 @@
     <string name="title_activity_aidl">AidlActivity</string>
     <string name="title_activity_location">LocationActivity</string>
     <string name="title_activity_google_map">GoogleMapActivity</string>
+    <string name="apikey">AIzaSyCUSLJ_VxoLeC9gauiZYUZYPeyym1sa3GE</string>
 </resources>
