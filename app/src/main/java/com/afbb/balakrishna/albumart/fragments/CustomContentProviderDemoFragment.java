@@ -13,18 +13,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CursorAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afbb.balakrishna.albumart.R;
 import com.afbb.balakrishna.albumart.provider.Const_Provider;
-import com.afbb.balakrishna.albumart.provider.MyProvider;
 
 public class CustomContentProviderDemoFragment extends Fragment implements View.OnClickListener {
 
     private View view;
     private ListView listview;
+    private EditText et_name;
 
     @Nullable
     @Override
@@ -40,6 +41,7 @@ public class CustomContentProviderDemoFragment extends Fragment implements View.
         Button btn_insert = (Button) view.findViewById(R.id.btn_insert);
         Button btn_update = (Button) view.findViewById(R.id.btn_update);
         Button btn_del = (Button) view.findViewById(R.id.btn_delete);
+        et_name = (EditText) view.findViewById(R.id.et_name);
         btn_show.setOnClickListener(this);
         btn_insert.setOnClickListener(this);
         btn_update.setOnClickListener(this);
@@ -57,6 +59,7 @@ public class CustomContentProviderDemoFragment extends Fragment implements View.
                 break;
             case R.id.btn_insert:
                 insertRecord();
+                showData();
                 break;
             case R.id.btn_update:
                 updateRecord();
@@ -79,14 +82,15 @@ public class CustomContentProviderDemoFragment extends Fragment implements View.
 
     private void insertRecord() {
         ContentValues values = new ContentValues();
-        values.put(Const_Provider., "BALU");
-        Uri uri = getActivity().getContentResolver().insert(MyProvider.CONTENT_URI, values);
-        Toast.makeText(getActivity(), "New record inserted", Toast.LENGTH_LONG)
+        values.put(Const_Provider.COL_STUDENT_NAME, et_name.getText() + "");
+        values.put(Const_Provider.COL_STUDENT_BRANCH, "CSE");
+        Uri uri = getActivity().getContentResolver().insert(Const_Provider.CONTENT_URI_STUDENTS, values);
+        Toast.makeText(getActivity(), "New record " + et_name.getText() + "inserted", Toast.LENGTH_LONG)
                 .show();
     }
 
     private void showData() {
-        Cursor cursor = getActivity().getContentResolver().query(MyProvider.CONTENT_URI, null, null, null, null);
+        Cursor cursor = getActivity().getContentResolver().query(Const_Provider.CONTENT_URI_STUDENTS, null, null, null, null);
         MyAdapter adapter = new MyAdapter(getActivity(), cursor);
         listview.setAdapter(adapter);
 
@@ -112,7 +116,7 @@ public class CustomContentProviderDemoFragment extends Fragment implements View.
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
             TextView tv = (TextView) view.findViewById(R.id.textView_additem_custom_provider);
-            String name = cursor.getString(cursor.getColumnIndex(MyProvider.name));
+            String name = cursor.getString(cursor.getColumnIndex(Const_Provider.COL_STUDENT_NAME));
             tv.setText(name);
         }
     }

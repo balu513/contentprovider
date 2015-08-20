@@ -16,12 +16,12 @@ public class Const_Provider {
     public static final Uri CONTENT_URI_FACULTY = Uri.parse(URL_FACULTY);
 
 
-    static final String TABLE_NAME_STUDENT = "students";
-    static final String TABLE_NAME_FACULTY = "faculty";
+    public static final String TABLE_NAME_STUDENT = "students";
+    public static final String TABLE_NAME_FACULTY = "faculty";
 
-    static final String COL_STUDENT_NAME = "name";
-    static final String COL_STUDENT_BRANCH = "branch";
+    public static final String COL_STUDENT_NAME = "name";
+    public static final String COL_STUDENT_BRANCH = "branch";
 
-    static final String COL_FACULTY_NAME = "name";
-    static final String COL_FACULTY_SUBJECT = "subject";
+    public static final String COL_FACULTY_NAME = "name";
+    public static final String COL_FACULTY_SUBJECT = "subject";
 }

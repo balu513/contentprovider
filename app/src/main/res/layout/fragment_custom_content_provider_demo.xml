@@ -7,13 +7,15 @@
     <ListView
         android:id="@+id/listview_customprovider"
         android:layout_width="match_parent"
+        android:layout_above="@+id/linearLayout"
         android:layout_height="match_parent"></ListView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+        android:layout_above="@+id/et_name"
+        android:id="@+id/linearLayout">
 
         <Button
             android:id="@+id/btn_show"
@@ -46,4 +48,10 @@
             android:layout_weight="1"
             android:text="delete" />
     </LinearLayout>
+
+    <EditText
+        android:layout_alignParentBottom="true"
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

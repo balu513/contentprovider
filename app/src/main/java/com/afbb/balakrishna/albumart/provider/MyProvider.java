@@ -11,21 +11,22 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.util.Log;
 
 public class MyProvider extends ContentProvider {
 
-    public static final String PROVIDER_NAME = "com.afbb.balakrishna.MyProvider";
+    static final String PROVIDER_NAME = "com.afbb.balakrishna.MyProvider";
 
-    public static final String URL_STUDENTS = "content://" + PROVIDER_NAME + "/students";
-    public static final Uri CONTENT_URI_STUDENTS = Uri.parse(URL_STUDENTS);
+    static final String URL_STUDENTS = "content://" + PROVIDER_NAME + "/students";
+    static final Uri CONTENT_URI_STUDENTS = Uri.parse(URL_STUDENTS);
 
-    public static final String URL_FACULTY = "content://" + PROVIDER_NAME + "/faculty";
-    public static final Uri CONTENT_URI_FACULTY = Uri.parse(URL_FACULTY);
+    static final String URL_FACULTY = "content://" + PROVIDER_NAME + "/faculty";
+    static final Uri CONTENT_URI_FACULTY = Uri.parse(URL_FACULTY);
 
 
     static final UriMatcher uriMatcher;
-    public static final int uriCode_student = 1;
-    public static final int uriCode_faculty = 2;
+    static final int uriCode_student = 1;
+    static final int uriCode_faculty = 2;
 
     static {
         uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -115,6 +116,7 @@ public class MyProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
+        Log.d("MyProvider", "onCreate 119 onCreate");
         Context context = getContext();
         DatabaseHelper dbHelper = new DatabaseHelper(context);
         db = dbHelper.getWritableDatabase();
@@ -153,6 +155,9 @@ public class MyProvider extends ContentProvider {
             String CREATE_DB_TABLE_FACULTY = " CREATE TABLE " + TABLE_NAME_FACULTY
                     + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + COL_FACULTY_NAME + " TEXT NOT NULL, " + COL_FACULTY_SUBJECT + " TEXT NOT NULL);";
+
+            Log.d("DatabaseHelper", "onCreate 157 " + CREATE_DB_TABLE_STUDENT);
+            Log.d("DatabaseHelper", "onCreate 157 " + CREATE_DB_TABLE_FACULTY);
 
             db.execSQL(CREATE_DB_TABLE_STUDENT);
             db.execSQL(CREATE_DB_TABLE_FACULTY);
