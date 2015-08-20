@@ -52,14 +52,11 @@ public class CustomContentProviderDemoFragment extends Fragment implements View.
 
     @Override
     public void onClick(View v) {
-
         switch (v.getId()) {
             case R.id.btn_show:
-                showData();
                 break;
             case R.id.btn_insert:
                 insertRecord();
-                showData();
                 break;
             case R.id.btn_update:
                 updateRecord();
@@ -69,14 +66,22 @@ public class CustomContentProviderDemoFragment extends Fragment implements View.
                 break;
 
         }
+        showData();
 
     }
 
     private void deleteRecord() {
+        int delete = getActivity().getContentResolver().delete(Const_Provider.CONTENT_URI_STUDENTS, "name=?", new String[]{et_name.getText().toString()});
+        Toast.makeText(getActivity(), "deleted: " + delete, Toast.LENGTH_SHORT).show();
 
     }
 
     private void updateRecord() {
+        ContentValues values = new ContentValues();
+        values.put(Const_Provider.COL_STUDENT_NAME, "UPDATED");
+        int update = getActivity().getContentResolver().update(Const_Provider.CONTENT_URI_STUDENTS, values, "name=?", new String[]{et_name.getText().toString()});
+        Toast.makeText(getActivity(), "Updated: " + update, Toast.LENGTH_SHORT).show();
+
 
     }
 
