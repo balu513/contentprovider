@@ -11,6 +11,10 @@
     <item android:title="content provider">
         <menu>
             <item
+                android:id="@+id/menu_custom_contentprovider"
+                android:icon="@drawable/audio"
+                android:title="custom"></item>
+            <item
                 android:id="@+id/menu_audio"
                 android:icon="@drawable/audio"
                 android:title="music"></item>

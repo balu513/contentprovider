@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afbb.balakrishna.albumart.R;
+import com.afbb.balakrishna.albumart.provider.Const_Provider;
 import com.afbb.balakrishna.albumart.provider.MyProvider;
 
 public class CustomContentProviderDemoFragment extends Fragment implements View.OnClickListener {
@@ -78,7 +79,7 @@ public class CustomContentProviderDemoFragment extends Fragment implements View.
 
     private void insertRecord() {
         ContentValues values = new ContentValues();
-        values.put(MyProvider.name, "BALU");
+        values.put(Const_Provider., "BALU");
         Uri uri = getActivity().getContentResolver().insert(MyProvider.CONTENT_URI, values);
         Toast.makeText(getActivity(), "New record inserted", Toast.LENGTH_LONG)
                 .show();

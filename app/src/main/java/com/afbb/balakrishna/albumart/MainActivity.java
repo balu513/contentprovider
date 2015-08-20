@@ -21,6 +21,7 @@ import com.afbb.balakrishna.albumart.activities.MessengerActivity;
 import com.afbb.balakrishna.albumart.activities.ServiceOperationsActivity;
 import com.afbb.balakrishna.albumart.fragments.AlbumFragment;
 import com.afbb.balakrishna.albumart.fragments.ContactsFragment;
+import com.afbb.balakrishna.albumart.fragments.CustomContentProviderDemoFragment;
 import com.afbb.balakrishna.albumart.fragments.GalleryFragment;
 import com.afbb.balakrishna.albumart.fragments.VideoFragment;
 import com.afbb.balakrishna.albumart.service.BackgroundServie;
@@ -50,6 +51,9 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         closeDrawer();
         switch (menuItem.getItemId()) {
+            case R.id.menu_custom_contentprovider:
+                replaceFragment(new CustomContentProviderDemoFragment());
+                break;
             case R.id.menu_audio:
                 replaceFragment(new AlbumFragment());
                 break;

@@ -13,7 +13,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.afbb.balakrishna.albumart.Adapters.SongsCursorAdapter;
@@ -35,14 +34,11 @@ public class AlbumFragment extends Fragment implements LoaderManager.LoaderCallb
 
         View view = inflater.inflate(R.layout.fragment_album, null);
         ListView mListView = (ListView) view.findViewById(R.id.list_album);
-        Button buttonCustomProvider = (Button) view.findViewById(R.id.btn_custom_provider);
         songsCursorAdapter = new SongsCursorAdapter(getActivity(), null);
         getActivity().getLoaderManager().initLoader(0, null, this);
         mListView.setAdapter(songsCursorAdapter);
         return view;
     }
-
-
 
     @Override
     public Loader onCreateLoader(int id, Bundle args) {
