@@ -6,7 +6,15 @@
         android:icon="@android:drawable/ic_menu_search"
         app:showAsAction="always"
         app:actionViewClass="android.support.v7.widget.SearchView"
-        android:title="Search"/>
+        android:title="Search" />
+
+    <item
+        android:id="@+id/action_spinner_placetype"
+        app:showAsAction="ifRoom"
+        android:title="place"
+        app:actionViewClass="android.widget.Spinner" />
+
+
     <item
         android:id="@+id/Save_map"
         android:orderInCategory="99"

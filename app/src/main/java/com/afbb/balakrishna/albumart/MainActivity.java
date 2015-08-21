@@ -25,6 +25,7 @@ import com.afbb.balakrishna.albumart.fragments.ContactsFragment;
 import com.afbb.balakrishna.albumart.fragments.CustomContentProviderDemoFragment;
 import com.afbb.balakrishna.albumart.fragments.GalleryFragment;
 import com.afbb.balakrishna.albumart.fragments.VideoFragment;
+import com.afbb.balakrishna.albumart.maps.CurrentLocationMap;
 import com.afbb.balakrishna.albumart.service.BackgroundServie;
 
 import java.util.Calendar;
@@ -84,6 +85,9 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 break;
             case R.id.menu_current_location:
                 startActivity(new Intent(this, LocationActivity.class));
+                break;
+            case R.id.menu_current_loc_map:
+                startActivity(new Intent(this, CurrentLocationMap.class));
                 break;
             case R.id.menu_googlmaps:
                 startActivity(new Intent(this, GoogleMapActivity.class));

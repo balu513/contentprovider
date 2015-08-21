@@ -72,6 +72,10 @@
     <item android:title="locations">
         <menu>
             <item
+                android:id="@+id/menu_current_loc_map"
+                android:icon="@drawable/audio"
+                android:title="current location"></item>
+            <item
                 android:id="@+id/menu_googlmaps"
                 android:icon="@drawable/audio"
                 android:title="Google Map"></item>

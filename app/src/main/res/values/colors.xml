@@ -12,5 +12,8 @@
     <color name="pink">#ffff3876</color>
     <color name="volilet">#ff0bd682</color>
     <color name="black">#ff000000</color>
+    <color name="White_Honeydew">#F0FFF0</color>
+    <color name="White_Azure">#F0FFFF</color>
+    <color name="White_WhiteSmoke">#F5F5F5</color>
     
 </resources>
