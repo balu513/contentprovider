@@ -1,4 +1,4 @@
-package com.afbb.balakrishna.albumart.activities;
+package com.afbb.balakrishna.albumart.maps;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -15,7 +15,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -31,11 +31,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afbb.balakrishna.albumart.R;
-import com.afbb.balakrishna.albumart.maps.AdressJSONParser;
-import com.afbb.balakrishna.albumart.maps.DirectionsJSONParser;
-import com.afbb.balakrishna.albumart.maps.GPSTracker;
-import com.afbb.balakrishna.albumart.maps.LatLangJSONParser;
-import com.afbb.balakrishna.albumart.maps.MapUtils;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -64,14 +59,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-public class GoogleMapActivity extends ActionBarActivity implements LocationListener {
+public class GoogleMapActivity extends AppCompatActivity implements LocationListener {
     // Google Map
     private GoogleMap googleMap;
     private double currentLatititude;
@@ -138,7 +132,7 @@ public class GoogleMapActivity extends ActionBarActivity implements LocationList
 				 * marker.
 				 */
                 String placeName = marker.getTitle();
-                double distance = CalculationByDistance(position.latitude,
+                double distance = MapUtils.CalculationByDistance(currentLatititude, currentLongitude, position.latitude,
                         position.longitude);
                 String dist = distance + "";
                 String strResDistance = dist.substring(0, 4);
@@ -194,40 +188,6 @@ public class GoogleMapActivity extends ActionBarActivity implements LocationList
 
     }
 
-    /**
-     * This method is for calculating the distance between the two LatLang
-     * positions.
-     * <p/>
-     * using this method only we can show the how long distance to the user...
-     *
-     * @param destLat
-     * @param destLong
-     * @return
-     */
-    public double CalculationByDistance(Double destLat, Double destLong) {
-        int Radius = 6371;// radius of earth in Km
-        double lat1 = currentLatititude;
-        double lat2 = destLat;
-        double lon1 = currentLongitude;
-        double lon2 = destLong;
-        double dLat = Math.toRadians(lat2 - lat1);
-        double dLon = Math.toRadians(lon2 - lon1);
-        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
-                + Math.cos(Math.toRadians(lat1))
-                * Math.cos(Math.toRadians(lat2)) * Math.sin(dLon / 2)
-                * Math.sin(dLon / 2);
-        double c = 2 * Math.asin(Math.sqrt(a));
-        double valueResult = Radius * c;
-        double km = valueResult / 1;
-        DecimalFormat newFormat = new DecimalFormat("####");
-        Integer kmInDec = Integer.valueOf(newFormat.format(km));
-        double meter = valueResult % 1000;
-        Integer meterInDec = Integer.valueOf(newFormat.format(meter));
-        Log.i("Radius Value", "" + valueResult + "   KM  " + kmInDec
-                + " Meter   " + meterInDec);
-
-        return Radius * c;
-    }
 
     /**
      * This method is for place the Marker in the current LatLang position.
@@ -425,6 +385,7 @@ public class GoogleMapActivity extends ActionBarActivity implements LocationList
                 lineOptions.addAll(points);
                 lineOptions.width(4);
                 lineOptions.color(Color.RED);
+                Toast.makeText(getApplicationContext(), "time: " + duration + " distance: " + distance, Toast.LENGTH_SHORT).show();
             }
 
             // Drawing polyline in the Google Map for the i-th route
@@ -481,7 +442,7 @@ public class GoogleMapActivity extends ActionBarActivity implements LocationList
         inflater.inflate(R.menu.menu_maptypes, menu);
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
-        android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) menuItem.getActionView();
+        SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -1146,8 +1107,8 @@ public class GoogleMapActivity extends ActionBarActivity implements LocationList
     private void saveGraph(Bitmap graph, Context context) {
         Calendar cal = Calendar.getInstance();
         try {
-            if (android.os.Environment.getExternalStorageState().equals(
-                    android.os.Environment.MEDIA_MOUNTED)) {
+            if (Environment.getExternalStorageState().equals(
+                    Environment.MEDIA_MOUNTED)) {
                 File sdCard = Environment.getExternalStorageDirectory();
                 File dir = new File(sdCard.getAbsolutePath() + "/Maps");
                 if (!dir.exists()) {

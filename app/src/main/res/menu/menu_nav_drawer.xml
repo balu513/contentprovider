@@ -71,6 +71,11 @@
 
     <item android:title="locations">
         <menu>
+
+            <item
+                android:id="@+id/menu_distance_time"
+                android:icon="@drawable/audio"
+                android:title="Distance_time"></item>
             <item
                 android:id="@+id/menu_current_loc_map"
                 android:icon="@drawable/audio"

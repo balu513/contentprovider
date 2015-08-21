@@ -109,7 +109,7 @@
             android:name=".activities.LocationActivity"
             android:label="@string/title_activity_location" />
         <activity
-            android:name=".activities.GoogleMapActivity"
+            android:name=".maps.GoogleMapActivity"
             android:label="@string/title_activity_google_map"></activity>
         <activity android:name=".activities.TourchActivity"></activity>
 
@@ -121,6 +121,8 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".maps.CurrentLocationMap"></activity>
+        <activity android:name=".maps.DistanceTIme"></activity>
+
     </application>
 
 </manifest>

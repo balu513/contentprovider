@@ -1,9 +1,12 @@
 package com.afbb.balakrishna.albumart.maps;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+
+import java.text.DecimalFormat;
 
 /**
  * Created by balakrishna on 21/8/15.
@@ -75,5 +78,40 @@ public class MapUtils {
                 "subway_station", "synagogue", "taxi_stand", "train_station",
                 "university", "veterinary_care", "zoo"};
         return placetypes;
+    }
+
+    /**
+     * This method is for calculating the distance between the two LatLang
+     * positions.
+     * <p/>
+     * using this method only we can show the how long distance to the user...
+     *
+     * @param destLat
+     * @param destLong
+     * @return
+     */
+    public static double CalculationByDistance(Double sourceLat, Double sourceLang, Double destLat, Double destLong) {
+        int Radius = 6371;// radius of earth in Km
+        double lat1 = sourceLat;
+        double lat2 = destLat;
+        double lon1 = sourceLang;
+        double lon2 = destLong;
+        double dLat = Math.toRadians(lat2 - lat1);
+        double dLon = Math.toRadians(lon2 - lon1);
+        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
+                + Math.cos(Math.toRadians(lat1))
+                * Math.cos(Math.toRadians(lat2)) * Math.sin(dLon / 2)
+                * Math.sin(dLon / 2);
+        double c = 2 * Math.asin(Math.sqrt(a));
+        double valueResult = Radius * c;
+        double km = valueResult / 1;
+        DecimalFormat newFormat = new DecimalFormat("####");
+        Integer kmInDec = Integer.valueOf(newFormat.format(km));
+        double meter = valueResult % 1000;
+        Integer meterInDec = Integer.valueOf(newFormat.format(meter));
+        Log.i("Radius Value", "" + valueResult + "   KM  " + kmInDec
+                + " Meter   " + meterInDec);
+
+        return Radius * c;
     }
 }
