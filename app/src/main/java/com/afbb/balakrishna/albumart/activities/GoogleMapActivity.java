@@ -1,4 +1,4 @@
-package com.afbb.balakrishna.albumart.maps;
+package com.afbb.balakrishna.albumart.activities;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -31,6 +31,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afbb.balakrishna.albumart.R;
+import com.afbb.balakrishna.albumart.maps.AdressJSONParser;
+import com.afbb.balakrishna.albumart.maps.DirectionsJSONParser;
+import com.afbb.balakrishna.albumart.maps.GPSTracker;
+import com.afbb.balakrishna.albumart.maps.LatLangJSONParser;
+import com.afbb.balakrishna.albumart.maps.MapUtils;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -377,7 +382,6 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
                     double lat = Double.parseDouble(point.get("lat"));
                     double lng = Double.parseDouble(point.get("lng"));
                     LatLng position = new LatLng(lat, lng);
-
                     points.add(position);
                 }
 
@@ -442,7 +446,7 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
         inflater.inflate(R.menu.menu_maptypes, menu);
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) menuItem.getActionView();
+        android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) menuItem.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -1107,8 +1111,8 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
     private void saveGraph(Bitmap graph, Context context) {
         Calendar cal = Calendar.getInstance();
         try {
-            if (Environment.getExternalStorageState().equals(
-                    Environment.MEDIA_MOUNTED)) {
+            if (android.os.Environment.getExternalStorageState().equals(
+                    android.os.Environment.MEDIA_MOUNTED)) {
                 File sdCard = Environment.getExternalStorageDirectory();
                 File dir = new File(sdCard.getAbsolutePath() + "/Maps");
                 if (!dir.exists()) {
