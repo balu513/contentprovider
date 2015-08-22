@@ -754,7 +754,8 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
         googleMap.addMarker(new MarkerOptions().position(latLng));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
-        locationTv.setText("Latitude:" + latitude + ", Longitude:" + longitude);
+        Toast.makeText(getApplicationContext(),"Latitude:" + latitude + ", Longitude:" + longitude, Toast.LENGTH_SHORT).show();
+//        locationTv.setText("Latitude:" + latitude + ", Longitude:" + longitude);
         placeInitialPosition();
     }
 

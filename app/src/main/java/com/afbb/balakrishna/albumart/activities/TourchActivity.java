@@ -32,7 +32,7 @@ public class TourchActivity extends Activity implements CompoundButton.OnChecked
 
     private Camera cam;
     private SeekBar seekBar;
-    private Handler handler1;
+    private Handler handlerFlashOnOff;
     private int TimeGap;
 
     private int color;
@@ -85,7 +85,7 @@ public class TourchActivity extends Activity implements CompoundButton.OnChecked
 
 
         handler = new Handler();
-        handler1 = new Handler();
+        handlerFlashOnOff = new Handler();
         handler2 = new Handler();
         handler.post(runnableBatteryLevel);
         toggleFlash.setOnCheckedChangeListener(this);
@@ -167,8 +167,8 @@ public class TourchActivity extends Activity implements CompoundButton.OnChecked
         if (isChecked) {
             turnOnFlashLight();
         } else {
-            if (handler1 != null)
-                handler1.removeCallbacks(runnable1);
+            if (handlerFlashOnOff != null)
+                handlerFlashOnOff.removeCallbacks(runnable1);
             turnOffFlashLight();
         }
 
@@ -204,7 +204,7 @@ public class TourchActivity extends Activity implements CompoundButton.OnChecked
         @Override
         public void run() {
             oNOff(isON);
-            handler.postDelayed(runnable1, TimeGap * 1000);
+            handler.postDelayed(runnable1, TimeGap * 100);
 
         }
     };
@@ -212,8 +212,8 @@ public class TourchActivity extends Activity implements CompoundButton.OnChecked
     @Override
     public void onProgressChanged(SeekBar seekBar, final int progress, boolean fromUser) {
         TimeGap = progress;
-        handler1.removeCallbacks(runnable1);
-        handler1.post(runnable1);
+        handlerFlashOnOff.removeCallbacks(runnable1);
+        handlerFlashOnOff.post(runnable1);
     }
 
     private void oNOff(boolean isON) {
@@ -225,7 +225,7 @@ public class TourchActivity extends Activity implements CompoundButton.OnChecked
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
-        handler1.post(runnable1);
+        handlerFlashOnOff.post(runnable1);
     }
 
     @Override
@@ -234,6 +234,7 @@ public class TourchActivity extends Activity implements CompoundButton.OnChecked
     }
 
     boolean isBlack;
+    int colorOnOffCount = 0;
     Runnable runnableColors = new Runnable() {
         @Override
         public void run() {
@@ -244,7 +245,16 @@ public class TourchActivity extends Activity implements CompoundButton.OnChecked
                 isBlack = true;
                 viewColors.setBackgroundColor(getResources().getColor(R.color.black));
             }
+            Log.d("TourchActivity", "run 248 " + colorOnOffCount);
+
+            colorOnOffCount++;
             handler2.postDelayed(runnableColors, 300);
+
+            if (colorOnOffCount == 10) {
+                handler2.removeCallbacks(runnableColors);
+                //handler2 = null;
+                colorOnOffCount = 0;
+            }
         }
     };
 
@@ -283,5 +293,11 @@ public class TourchActivity extends Activity implements CompoundButton.OnChecked
 
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (cam != null)
+            cam.release();
+        cam = null;
+    }
 }
