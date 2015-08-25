@@ -391,7 +391,7 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
                 lineOptions.addAll(points);
                 lineOptions.width(4);
                 lineOptions.color(Color.RED);
-                Toast.makeText(getApplicationContext(), "time: " + duration + " distance: " + distance, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "time: " + duration + " distance: " + distance, Toast.LENGTH_SHORT).show();
             }
 
             // Drawing polyline in the Google Map for the i-th route
@@ -641,6 +641,7 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
 
         @Override
         protected void onPostExecute(List<HashMap<String, String>> result) {
+            Log.d("MyAsync", "onPostExecute 644 "+  result);
             if (result.size() == 0) {
 
                 Toast.makeText(

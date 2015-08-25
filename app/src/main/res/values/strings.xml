@@ -17,4 +17,5 @@
     <string name="title_activity_location">LocationActivity</string>
     <string name="title_activity_google_map">GoogleMapActivity</string>
     <string name="apikey">AIzaSyCUSLJ_VxoLeC9gauiZYUZYPeyym1sa3GE</string>
+    <string name="title_activity_online_music">OnlineMusicActivity</string>
 </resources>

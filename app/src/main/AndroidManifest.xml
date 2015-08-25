@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.afbb.balakrishna.albumart">
+    package="com.afbb.balakrishna.albumart" >
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission
         android:name="android.permission.FLASHLIGHT"
         android:required="true" />
-
     <uses-permission android:name="android.permission.ACCESS_GPS" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -27,7 +26,6 @@
         android:glEsVersion="0x00020000"
         android:required="true" />
 
-
     <!--
  The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but are recommended.
@@ -39,10 +37,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -61,7 +59,7 @@
             android:name=".activities.testAc"
             android:label="@string/title_activity_test" />
 
-        <receiver android:name=".widget.MyWidgetProvider">
+        <receiver android:name=".widget.MyWidgetProvider" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="update" />
@@ -110,8 +108,8 @@
             android:label="@string/title_activity_location" />
         <activity
             android:name=".activities.GoogleMapActivity"
-            android:label="@string/title_activity_google_map"></activity>
-        <activity android:name=".activities.TourchActivity"></activity>
+            android:label="@string/title_activity_google_map" />
+        <activity android:name=".activities.TourchActivity" />
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
@@ -120,9 +118,12 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".maps.CurrentLocationMap"></activity>
-        <activity android:name=".maps.DistanceTIme"></activity>
-
+        <activity android:name=".maps.CurrentLocationMap" />
+        <activity android:name=".maps.DistanceTIme" />
+        <activity
+            android:name=".activities.OnlineMusicActivity"
+            android:label="@string/title_activity_online_music" >
+        </activity>
     </application>
 
 </manifest>

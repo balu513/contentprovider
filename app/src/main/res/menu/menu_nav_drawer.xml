@@ -90,4 +90,13 @@
                 android:title="Current Location"></item>
         </menu>
     </item>
+    <item android:title="entertainment">
+        <menu>
+
+            <item
+                android:id="@+id/menu_online_music"
+                android:icon="@drawable/audio"
+                android:title="online music"></item>
+        </menu>
+    </item>
 </menu>

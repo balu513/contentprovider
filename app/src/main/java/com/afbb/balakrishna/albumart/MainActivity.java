@@ -95,6 +95,9 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
             case R.id.menu_torch:
                 startActivity(new Intent(this, TourchActivity.class));
                 break;
+            case R.id.menu_online_music:
+                startActivity(new Intent(this, TourchActivity.class));
+                break;
 
 
         }
