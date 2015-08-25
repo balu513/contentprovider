@@ -214,6 +214,8 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
     public void checkGPS() {
         GPSTracker gps = new GPSTracker(GoogleMapActivity.this);
 
+        //hi this is bala krishna and i am working in applica
+
         // check if GPS enabled
         if (gps.canGetLocation()) {
 
@@ -615,6 +617,7 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
                             + strPlaceType
                             + "&key=AIzaSyCM30efnC8vQXoOMI16xk-DzBJKa9v22oA&sensor=true&mode="
                             + mMapMode;
+                    Log.d("MyAsync", "doInBackground 620 " + url);
                 } else {
                     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="
                             + currentLatititude
@@ -754,7 +757,7 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
         googleMap.addMarker(new MarkerOptions().position(latLng));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
-        Toast.makeText(getApplicationContext(),"Latitude:" + latitude + ", Longitude:" + longitude, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Latitude:" + latitude + ", Longitude:" + longitude, Toast.LENGTH_SHORT).show();
 //        locationTv.setText("Latitude:" + latitude + ", Longitude:" + longitude);
         placeInitialPosition();
     }
