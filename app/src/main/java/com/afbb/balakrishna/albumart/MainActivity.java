@@ -18,6 +18,7 @@ import com.afbb.balakrishna.albumart.activities.AidlActivity;
 import com.afbb.balakrishna.albumart.activities.GoogleMapActivity;
 import com.afbb.balakrishna.albumart.activities.LocationActivity;
 import com.afbb.balakrishna.albumart.activities.MessengerActivity;
+import com.afbb.balakrishna.albumart.activities.OnlineMusicActivity;
 import com.afbb.balakrishna.albumart.activities.ServiceOperationsActivity;
 import com.afbb.balakrishna.albumart.activities.TourchActivity;
 import com.afbb.balakrishna.albumart.fragments.AlbumFragment;
@@ -96,7 +97,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 startActivity(new Intent(this, TourchActivity.class));
                 break;
             case R.id.menu_online_music:
-                startActivity(new Intent(this, TourchActivity.class));
+                startActivity(new Intent(this, OnlineMusicActivity.class));
                 break;
 
 
