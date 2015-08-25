@@ -383,7 +383,7 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
                     }
                     double lat = Double.parseDouble(point.get("lat"));
                     double lng = Double.parseDouble(point.get("lng"));
-                    LatLng position = new LatLng(lat, lng);
+                    LatLng position = new LatLng(lat, lng );
                     points.add(position);
                 }
 
