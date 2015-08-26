@@ -124,6 +124,10 @@
             android:name=".activities.OnlineMusicActivity"
             android:label="@string/title_activity_online_music" >
         </activity>
+        <activity
+            android:name=".activities.DragViewActivity"
+            android:label="@string/title_activity_drag_view" >
+        </activity>
     </application>
 
 </manifest>

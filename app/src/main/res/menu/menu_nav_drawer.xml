@@ -48,6 +48,10 @@
                 android:id="@+id/menu_torch"
                 android:icon="@drawable/audio"
                 android:title="Torch Light"></item>
+            <item
+                android:id="@+id/menu_viewdrag"
+                android:icon="@drawable/audio"
+                android:title="Drag view"></item>
         </menu>
     </item>
 
