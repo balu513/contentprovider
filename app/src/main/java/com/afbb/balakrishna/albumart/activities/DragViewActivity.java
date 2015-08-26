@@ -1,5 +1,6 @@
 package com.afbb.balakrishna.albumart.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -10,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.afbb.balakrishna.albumart.R;
+import com.afbb.balakrishna.albumart.service.DraggableService;
 
 public class DragViewActivity extends AppCompatActivity implements View.OnTouchListener {
 
@@ -29,6 +31,8 @@ public class DragViewActivity extends AppCompatActivity implements View.OnTouchL
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(150, 150);
         mImageView.setLayoutParams(layoutParams);
         mImageView.setOnTouchListener(this);
+
+        startService(new Intent(this, DraggableService.class));
     }
 
     public boolean onTouch(View view, MotionEvent event) {
