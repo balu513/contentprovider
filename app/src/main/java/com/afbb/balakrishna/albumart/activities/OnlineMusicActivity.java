@@ -116,8 +116,8 @@ public class OnlineMusicActivity extends Activity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            File directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-            file = new File(directory.getAbsolutePath() + "/" + "song.txt");
+            File rootsd = Environment.getExternalStorageDirectory();
+            file = new File(rootsd.getAbsolutePath() + "/dropbox/song.mp3");
             try {
             file.createNewFile();
                 outputStream = new FileOutputStream(file);
