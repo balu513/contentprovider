@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -103,11 +104,19 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
             case R.id.menu_online_music:
                 startActivity(new Intent(this, OnlineMusicActivity.class));
                 break;
+            case R.id.menu_google_dir:
+                getRoute();
 
 
         }
 
         return false;
+    }
+
+    public void getRoute() {
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("http://maps.google.com/maps?saddr=20.344,34.34&daddr=20.5666,45.345"));
+        startActivity(intent);
     }
 
     private void showNotification() {

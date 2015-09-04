@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.location.Criteria;
@@ -12,6 +13,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -92,6 +94,7 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
 
     private String mMapMode = "driving";
     private int mMapRange = 3000;
+    private MarkerOptions markerInitial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +104,12 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
         setSupportActionBar(toolbar);
         supportMapFragment =
                 (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+    }
+
+    public void getDirectionsByIntent(double slat, double slang, double dlat, double dlang) {
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("http://maps.google.com/maps?saddr=" + slat + "," + slang + "&daddr=" + dlat + "," + dlang + ""));
+        startActivity(intent);
     }
 
     @Override
@@ -137,6 +146,7 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
 				 * marker.
 				 */
                 String placeName = marker.getTitle();
+//                getDirectionsByIntent(currentLatititude,currentLongitude,position.latitude,position.longitude);
                 double distance = MapUtils.CalculationByDistance(currentLatititude, currentLongitude, position.latitude,
                         position.longitude);
                 String dist = distance + "";
@@ -200,7 +210,7 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
      * nd naming the current position like 'AppsForBB'.
      */
     private void placeInitialPosition() {
-        MarkerOptions markerInitial = new MarkerOptions().position(
+        markerInitial = new MarkerOptions().position(
                 new LatLng(currentLatititude, currentLongitude)).title(
                 "AppsForBB");
         markerInitial.icon(BitmapDescriptorFactory
@@ -383,7 +393,7 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
                     }
                     double lat = Double.parseDouble(point.get("lat"));
                     double lng = Double.parseDouble(point.get("lng"));
-                    LatLng position = new LatLng(lat, lng );
+                    LatLng position = new LatLng(lat, lng);
                     points.add(position);
                 }
 
@@ -591,6 +601,7 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
             dialog.setCanceledOnTouchOutside(true);
 //			dialog.show(GoogleMapsActivity.this, "",
 //					"Loading in, Please wait...!", true, true,
+
 //					new DialogInterface.OnCancelListener() {
 //
 //						@Override
@@ -598,6 +609,7 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
 //
 //						}
 //					});
+            Log.d("MyAsync", "onPreExecute curr lat " + currentLatititude + "  curr lang: " + currentLongitude);
             dialog.show();
 
         }
@@ -641,7 +653,7 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
 
         @Override
         protected void onPostExecute(List<HashMap<String, String>> result) {
-            Log.d("MyAsync", "onPostExecute 644 "+  result);
+            Log.d("MyAsync", "onPostExecute 644 " + result);
             if (result.size() == 0) {
 
                 Toast.makeText(
@@ -674,7 +686,7 @@ public class GoogleMapActivity extends AppCompatActivity implements LocationList
             dlat = Double.parseDouble(hashMap.get("lat") + "");
             dlon = Double.parseDouble(hashMap.get("lng") + "");
             marker = new MarkerOptions().position(new LatLng(dlat, dlon))
-                    .title(hashMap.get("place_name"));
+                    .title(hashMap.get("place_name") + " " + hashMap.get("vicinity"));
             marker.icon(markerColor);
             marker.position(new LatLng(dlat, dlon));
             googleMap.addMarker(marker);

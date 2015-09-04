@@ -92,6 +92,10 @@
                 android:id="@+id/menu_current_location"
                 android:icon="@drawable/audio"
                 android:title="Current Location"></item>
+            <item
+                android:id="@+id/menu_google_dir"
+                android:icon="@drawable/audio"
+                android:title="dirctions"></item>
         </menu>
     </item>
     <item android:title="entertainment">

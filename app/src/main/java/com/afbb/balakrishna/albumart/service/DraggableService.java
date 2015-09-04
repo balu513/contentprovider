@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.IBinder;
+import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,6 +17,8 @@ import com.afbb.balakrishna.albumart.R;
 public class DraggableService extends Service {
     private WindowManager windowManager;
     private ImageView chatHead;
+    private GestureDetector gestureDetector;
+    private boolean isMoving = false;
 
     public DraggableService() {
     }
@@ -45,6 +48,7 @@ public class DraggableService extends Service {
         params.x = 0;
         params.y = 100;
 
+        gestureDetector = new GestureDetector(this, new SingleTapConfirm());
         windowManager.addView(chatHead, params);
 
         chatHead.setOnTouchListener(new View.OnTouchListener() {
@@ -55,20 +59,30 @@ public class DraggableService extends Service {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         initialX = params.x;
                         initialY = params.y;
                         initialTouchX = event.getRawX();
                         initialTouchY = event.getRawY();
-                        return true;
+                        return false;
                     case MotionEvent.ACTION_UP:
-                        return true;
+                        boolean temp = isMoving;
+                        isMoving = false;
+                        return temp;
                     case MotionEvent.ACTION_MOVE:
+                        if (!isMoving) {
+                            isMoving = true;
+                        }
                         params.x = initialX + (int) (event.getRawX() - initialTouchX);
                         params.y = initialY + (int) (event.getRawY() - initialTouchY);
                         windowManager.updateViewLayout(chatHead, params);
-                        return true;
+                        return false;
+                    case MotionEvent.ACTION_CANCEL:
+                        isMoving = false;
+                        return false;
+
                 }
                 return false;
             }
@@ -79,5 +93,13 @@ public class DraggableService extends Service {
                 Toast.makeText(getApplicationContext(), "Affbb @car", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private class SingleTapConfirm extends GestureDetector.SimpleOnGestureListener {
+
+        @Override
+        public boolean onSingleTapConfirmed(MotionEvent event) {
+            return true;
+        }
     }
 }
