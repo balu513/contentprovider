@@ -13,7 +13,7 @@ public class SingletonService extends Service {
     public void onCreate() {
 
         super.onCreate();
-        instance = this;
+        instance = SingletonService.this;
 
     }
 

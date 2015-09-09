@@ -34,7 +34,7 @@ public class AidlActivity extends Activity {
             iMyAidlInterface = IMyAidlInterface.Stub.asInterface(service);
             try {
                 iMyAidlInterface.setName("BALUUU");
-//                iMyAidlInterface.s
+
                 Toast.makeText(getApplicationContext(), "NAME: " + iMyAidlInterface.getName(), Toast.LENGTH_SHORT).show();
             } catch (RemoteException e) {
                 e.printStackTrace();

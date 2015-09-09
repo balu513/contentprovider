@@ -159,6 +159,7 @@ public class ServiceOperationsActivity extends Activity implements View.OnClickL
         @Override
         protected void onReceiveResult(int resultCode, Bundle resultData) {
             super.onReceiveResult(resultCode, resultData);
+            
             String responseFromIntentservice = resultData.getString("from_intent_service");
             Toast.makeText(getApplicationContext(), "response " + responseFromIntentservice, Toast.LENGTH_SHORT).show();
         }

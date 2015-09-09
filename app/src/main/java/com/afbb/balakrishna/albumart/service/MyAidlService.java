@@ -16,7 +16,7 @@ public class MyAidlService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return iMyAidlInterface;
     }
 
     IMyAidlInterface.Stub iMyAidlInterface = new IMyAidlInterface.Stub() {
@@ -28,7 +28,7 @@ public class MyAidlService extends Service {
 
         @Override
         public String getName() throws RemoteException {
-            return MyAidlService.this.name + " : " + new Random().nextInt(1000);
+            return "im from AIDL service: " + MyAidlService.this.name + " : " + new Random().nextInt(1000);
         }
 
         @Override
