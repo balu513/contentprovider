@@ -18,6 +18,7 @@ import com.afbb.balakrishna.albumart.activities.ActionBarDemoActiviy;
 import com.afbb.balakrishna.albumart.activities.AidlActivity;
 import com.afbb.balakrishna.albumart.activities.DragViewActivity;
 import com.afbb.balakrishna.albumart.activities.GoogleMapActivity;
+import com.afbb.balakrishna.albumart.activities.ListviewPagenationActivity;
 import com.afbb.balakrishna.albumart.activities.LocationActivity;
 import com.afbb.balakrishna.albumart.activities.MessengerActivity;
 import com.afbb.balakrishna.albumart.activities.OnlineMusicActivity;
@@ -76,6 +77,8 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 break;
             case R.id.menu_notification:
                 showNotification();
+
+
                 break;
             case R.id.menu_service:
                 startActivity(new Intent(this, ServiceOperationsActivity.class));
@@ -106,6 +109,8 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 break;
             case R.id.menu_google_dir:
                 getRoute();
+            case R.id.menu_listview_pagination:
+                startActivity(new Intent(this, ListviewPagenationActivity.class));
 
 
         }
