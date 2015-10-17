@@ -135,7 +135,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 .setContentTitle("New mail from balu")
                 .setContentText("yehh : " + calendar.get(Calendar.HOUR) + ":" + calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND))
                 .setSmallIcon(R.drawable.profile)
-//                .setOngoing(true)
+                .setOngoing(true)
 //                .setLargeIcon(aBitmap)
                 .build();
         i++;
