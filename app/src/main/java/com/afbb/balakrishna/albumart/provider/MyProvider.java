@@ -44,6 +44,8 @@ public class MyProvider extends ContentProvider {
         switch (uriMatcher.match(uri)) {
             case uriCode_student:
                 return "vnd.android.cursor.dir/student";
+            case uriCode_faculty:
+                return "vnd.android.cursor.dir/faculty";
 
             default:
                 throw new IllegalArgumentException("Unsupported URI: " + uri);

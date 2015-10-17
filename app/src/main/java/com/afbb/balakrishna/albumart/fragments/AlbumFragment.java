@@ -35,8 +35,11 @@ public class AlbumFragment extends Fragment implements LoaderManager.LoaderCallb
         View view = inflater.inflate(R.layout.fragment_album, null);
         ListView mListView = (ListView) view.findViewById(R.id.list_album);
         songsCursorAdapter = new SongsCursorAdapter(getActivity(), null);
+
         getActivity().getLoaderManager().initLoader(0, null, this);
         mListView.setAdapter(songsCursorAdapter);
+
+
         return view;
     }
 

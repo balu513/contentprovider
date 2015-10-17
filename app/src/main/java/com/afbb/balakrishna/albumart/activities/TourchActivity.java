@@ -174,6 +174,23 @@ public class TourchActivity extends Activity implements CompoundButton.OnChecked
 
     }
 
+
+
+    Runnable runnable1 = new Runnable() {
+        @Override
+        public void run() {
+            oNOff(isON);
+            handler.postDelayed(runnable1, TimeGap * 100);
+
+        }
+    };
+
+    private void oNOff(boolean isON) {
+        if (isON)
+            turnOffFlashLight();
+        else
+            turnOnFlashLight();
+    }
     public void turnOnFlashLight() {
         isON = true;
         try {
@@ -200,15 +217,6 @@ public class TourchActivity extends Activity implements CompoundButton.OnChecked
         }
     }
 
-    Runnable runnable1 = new Runnable() {
-        @Override
-        public void run() {
-            oNOff(isON);
-            handler.postDelayed(runnable1, TimeGap * 100);
-
-        }
-    };
-
     @Override
     public void onProgressChanged(SeekBar seekBar, final int progress, boolean fromUser) {
         TimeGap = progress;
@@ -216,12 +224,6 @@ public class TourchActivity extends Activity implements CompoundButton.OnChecked
         handlerFlashOnOff.post(runnable1);
     }
 
-    private void oNOff(boolean isON) {
-        if (isON)
-            turnOffFlashLight();
-        else
-            turnOnFlashLight();
-    }
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {

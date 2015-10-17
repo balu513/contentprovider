@@ -1,7 +1,6 @@
 package com.afbb.balakrishna.albumart.fragments;
 
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
@@ -16,14 +15,16 @@ import com.afbb.balakrishna.albumart.Adapters.ContactsCursorAdapter;
 import com.afbb.balakrishna.albumart.MainActivity;
 import com.afbb.balakrishna.albumart.R;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class ContactsFragment extends Fragment {
 
-    Uri CONTENT_URI = ContactsContract.Contacts.CONTENT_URI;
     private ListView listview;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final Cursor cursor = getActivity().getContentResolver().query(CONTENT_URI, null, null, null, null);
+        final Cursor cursor = getActivity().getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
 
         View view = inflater.inflate(R.layout.fragment_contacts, null);
         listview = (ListView) view.findViewById(R.id.list_contacts);
@@ -33,9 +34,12 @@ public class ContactsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 cursor.moveToPosition(position);
-                String contactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
+                String contactId = cursor.getString(cursor.getColumnIndex(""));
 
                 Cursor phones = getActivity().getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId, null, null);
+                String[] columnNames = phones.getColumnNames();
+                List<String> list = Arrays.asList(columnNames);
+
                 phones.moveToNext();
                 String number = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
 

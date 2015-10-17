@@ -87,6 +87,7 @@ public class ServiceOperationsActivity extends Activity implements View.OnClickL
     public void onClick(View v) {
 
         switch (v.getId()) {
+
             case R.id.button_start_service:
                 intentStartService = new Intent(this, StartService.class);
                 startService(intentStartService);

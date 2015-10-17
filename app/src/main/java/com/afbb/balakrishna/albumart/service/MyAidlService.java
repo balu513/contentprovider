@@ -19,6 +19,7 @@ public class MyAidlService extends Service {
         return iMyAidlInterface;
     }
 
+
     IMyAidlInterface.Stub iMyAidlInterface = new IMyAidlInterface.Stub() {
 
         @Override

@@ -1,10 +1,7 @@
 package com.afbb.balakrishna.albumart.service;
 
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.Service;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.Handler;
@@ -24,26 +21,16 @@ public class BoundService extends Service {
     private TextView tvServiceStatus;
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-        Log.d("BoundService", "onCreate 16 ");
-        Toast.makeText(getApplicationContext(), "onCreate", Toast.LENGTH_SHORT).show();
-//        startHandlerProcess(null);
-    }
-
-    @Override
     public IBinder onBind(Intent intent) {
         Log.d("BoundService", "onBind 23 ");
         Toast.makeText(getApplicationContext(), "onBind", Toast.LENGTH_SHORT).show();
         return new MyLocale();
     }
 
-
     public class MyLocale extends Binder {
         public BoundService getReff() {
             return BoundService.this;
         }
-
     }
 
     @Override
@@ -52,6 +39,16 @@ public class BoundService extends Service {
         Toast.makeText(getApplicationContext(), "onUnBind", Toast.LENGTH_SHORT).show();
         return super.onUnbind(intent);
     }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.d("BoundService", "onCreate 16 ");
+        Toast.makeText(getApplicationContext(), "onCreate", Toast.LENGTH_SHORT).show();
+//        startHandlerProcess(null);
+    }
+
+
 
     @Override
     public void onDestroy() {

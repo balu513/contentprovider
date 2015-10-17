@@ -19,14 +19,9 @@ import java.util.List;
 
 public class ListviewPagenationActivity extends Activity {
 
-    private int currentFirstVisibleItem;
-    private int currentVisibleItemCount;
-    private int currentScrollState;
     private ListView listView;
-    int count;
     private ArrayList list;
     private PaginationAdapter paginationAdapter;
-    private boolean loadingMore;
     int size;
 
     @Override
@@ -46,9 +41,9 @@ public class ListviewPagenationActivity extends Activity {
         for (int i = 0; i < n; i++) {
             arrayList.add(i);
         }
-        loadingMore = false;
         return arrayList;
     }
+
 
     @Override
     protected void onResume() {
